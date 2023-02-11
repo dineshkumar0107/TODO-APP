@@ -1,5 +1,7 @@
 package com.example.todo.model;
 
+
+
 public class Todo {
     private int id;
     private String title;
@@ -7,13 +9,6 @@ public class Todo {
 
     Todo(){
 
-    }
-
-
-    public Todo(int id,String title,boolean status) {
-        this.id=id;
-        this.title=title;
-        this.status = status;
     }
 
     public int getId() {
@@ -39,6 +34,14 @@ public class Todo {
     public void setStatus(boolean status) {
         this.status = status;
     }
+
+    public Todo(int id, String title, boolean status) {
+        this.id=id;
+        this.title=title;
+        this.status = status;
+    }
+
+
 
     @Override
     public String toString() {

@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.function.Predicate;
 
 
+
+
 @Service
 public class TodoService {
     private static List<Todo> todos = new ArrayList<>();
@@ -34,5 +36,17 @@ public class TodoService {
         Todo todo =todos.stream().filter(predicate).findFirst().get();
         return todo;
     }
-
+    public void addTodo(Todo todo){
+      todos.add(todo);
+    }
+ public void deleteTodo(int id){
+        Predicate<? super Todo> predicate = todo-> todo.getId()==id;
+        todos.removeIf(predicate);
+ }
+ public void updateTodo(int id,Todo newTodo){
+        Todo todo = findId(id);
+        todo.setId(newTodo.getId());
+        todo.setTitle(newTodo.getTitle());
+        todo.setStatus(newTodo.isStatus());
+ }
 }

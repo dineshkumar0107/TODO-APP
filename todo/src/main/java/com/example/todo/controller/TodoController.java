@@ -19,9 +19,9 @@ public class TodoController {
 
     this.todoService=todoService;
   }
-  @PostMapping
+  @PostMapping("/add-todo")
     public void addTodo(@RequestBody Todo todo){
-
+         todoService.addTodo(todo);
     }
     //http://localhost:8080/api/v1/todo-app/find-todo/id/5
     @GetMapping("/find-todo/id/{id}")
@@ -36,13 +36,13 @@ public class TodoController {
 
     }
     // @RequestMapping(value="url", method=HttpRequest.PUT)
-    @PutMapping
+    @PutMapping("update-todo/id/{id}")
     public void updateTodo(@PathVariable int id, @RequestBody Todo todo){
-
+   todoService.updateTodo(id,todo);
     }
-    @DeleteMapping
+    @DeleteMapping("delete-todo/id/{id}")
     public void deleteTodo(@PathVariable int id){
-
+        todoService.deleteTodo(id);
     }
 
     /*@RequestMapping("/api")
