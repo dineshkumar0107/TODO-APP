@@ -2,6 +2,7 @@ package com.example.todo.controller;
 
 import com.example.todo.model.Todo;
 import com.example.todo.service.TodoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,11 +15,10 @@ CREATE TODO, DELETE TODO, UPDATE TODO, FETCH TODO(CRUD OPERATIONS)
 @RequestMapping("api/v1/todo-app")
 public class TodoController {
 
-  private  final TodoService todoService;
-  public TodoController(TodoService todoService){
+    @Autowired // use to inject Dependency
+  private  TodoService todoService;
 
-    this.todoService=todoService;
-  }
+
   @PostMapping("/add-todo")
     public void addTodo(@RequestBody Todo todo){
          todoService.addTodo(todo);

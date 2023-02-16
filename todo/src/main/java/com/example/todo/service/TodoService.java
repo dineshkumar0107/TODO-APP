@@ -37,7 +37,8 @@ public class TodoService {
         return todo;
     }
     public void addTodo(Todo todo){
-      todos.add(todo);
+
+        todos.add(todo);
     }
  public void deleteTodo(int id){
         Predicate<? super Todo> predicate = todo-> todo.getId()==id;
