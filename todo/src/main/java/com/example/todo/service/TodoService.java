@@ -1,6 +1,8 @@
 package com.example.todo.service;
 
 import com.example.todo.model.Todo;
+import com.example.todo.repository.TodoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,41 +15,35 @@ import java.util.function.Predicate;
 @Service
 public class TodoService implements ITodoService {
     private static List<Todo> todos = new ArrayList<>();
-    private static int todoCount=0;
+
+@Autowired
+    TodoRepository todoRepository;
 
 
 
-    static {
-
-
-    }
 @Override
     public List<Todo> findAll(){ // business logic
-        return todos;
+        return todoRepository.findAll();
 
     }
     @Override
     public Todo findId(int id){ // business logic
-        //to be written
-        Predicate<? super Todo> predicate = todo -> todo.getId()==id;
-        Todo todo =todos.stream().filter(predicate).findFirst().get();
-        return todo;
+        return todoRepository.findById(id).get();
     }
     @Override
     public void addTodo(Todo todo){
 
-        todos.add(todo);
+        todoRepository.save(todo);
     }
     @Override
  public void deleteTodo(int id){
-        Predicate<? super Todo> predicate = todo-> todo.getId()==id;
-        todos.removeIf(predicate);
+        todoRepository.deleteById(id);
  }
     @Override
  public void updateTodo(int id,Todo newTodo){
-        Todo todo = findId(id);
+        Todo todo = todoRepository.findById(id).get();
         todo.setId(newTodo.getId());
         todo.setTitle(newTodo.getTitle());
-        todo.setStatus(newTodo.isStatus());
+        todoRepository.save(todo);
  }
 }
