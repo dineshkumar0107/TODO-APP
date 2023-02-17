@@ -1,0 +1,5 @@
+insert into todo (title,status) values('test1',false)
+insert into todo (title,status) values('test2',false)
+insert into todo (title,status) values('test4',false)
+insert into todo (title,status) values('test3',false)
+insert into todo (title,status) values('test5',false)
