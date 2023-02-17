@@ -1,5 +1,6 @@
-insert into todo (title,status) values('test1',false)
-insert into todo (title,status) values('test2',false)
-insert into todo (title,status) values('test4',false)
+insert into todo (title,status) values('Learn SpringBoot',false)
+insert into todo (title,status) values('Visit Grocery Store',false)
+insert into todo (title,status) values('Learn AWS',false)
 insert into todo (title,status) values('test3',false)
-insert into todo (title,status) values('test5',false)
+insert into todo (title,status) values('yoga',false)
+

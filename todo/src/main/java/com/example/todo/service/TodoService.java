@@ -18,11 +18,7 @@ public class TodoService implements ITodoService {
 
 
     static {
-        todos.add(new Todo(++todoCount, "Learn SpringBoot",false));
-        todos.add(new Todo(++todoCount, "Visit Grocery Store",false));
-        todos.add(new Todo(++todoCount, "Learn AWS",false));
-        todos.add(new Todo(++todoCount, "hdhdjdhd",false));
-        todos.add(new Todo(++todoCount, "Yoga4",false));
+
 
     }
 @Override
